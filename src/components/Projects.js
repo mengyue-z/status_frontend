@@ -1,8 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Table from 'react-bootstrap/Table';
 import {Button} from "react-bootstrap";
 
 function Projects() {
+    const[projects, setProjects] = useState([]);
+    useEffect(()=>{
+        fetch("http://localhost:8080/projects/",
+            {
+                method:"GET",
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'},
+                })
+            .then(res=>res.json())
+            .then((result)=> {
+            setProjects(result);
+        }
+        )},[]);
+
     return (
         <div className = "projects">
             <h1>Project List</h1>
@@ -15,16 +30,15 @@ function Projects() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>13720 Atlantis</td>
-                    <td>
-                        <Button>Selection</Button>
-                        <Button>Bid</Button>
-                        <Button>Purchasing</Button>
-                        <Button>Edit</Button>
-                    </td>
-                </tr>
+                {projects.map(project=>(
+                    <tr>
+                        <td>{project.id}</td>
+                        <td>{project.address}</td>
+                        <td>
+                            <Button>View and Edit</Button>
+                        </td>
+                    </tr>
+                ))}
                 </tbody>
             </Table>
         </div>

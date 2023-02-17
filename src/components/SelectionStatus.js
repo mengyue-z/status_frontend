@@ -6,7 +6,7 @@ function SelectionStatus() {
     return (
         <div className = "bid-status">
             <h1>Project Address</h1>
-            <h2>Bid Status</h2>
+            <h2>Selection Status</h2>
             <Table striped bordered hover>
                 <thead>
                 <tr>
