@@ -1,9 +1,18 @@
 import React, {useEffect, useState} from "react";
 import Table from 'react-bootstrap/Table';
 import {Button} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import AddProjectForm from "./AddProjectForm";
 
 function Projects() {
+    const navigate = useNavigate();
     const[projects, setProjects] = useState([]);
+    const[showForm, setShowForm] = useState(false);
+
+    const handleButtonClick = () => {
+        setShowForm(true);
+    };
+
     useEffect(()=>{
         fetch("http://localhost:8080/projects/",
             {
@@ -31,16 +40,18 @@ function Projects() {
                 </thead>
                 <tbody>
                 {projects.map(project=>(
-                    <tr>
+                    <tr key="{project.id}">
                         <td>{project.id}</td>
                         <td>{project.address}</td>
                         <td>
-                            <Button>View and Edit</Button>
+                            <Button onClick={()=>navigate("/project")}>View and Edit</Button>
                         </td>
                     </tr>
                 ))}
                 </tbody>
             </Table>
+            <Button onClick={handleButtonClick}>Add New Project</Button>
+            {showForm && <AddProjectForm/> }
         </div>
     );
 }
