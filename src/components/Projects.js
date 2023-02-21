@@ -44,7 +44,7 @@ function Projects() {
                         <td>{project.id}</td>
                         <td>{project.address}</td>
                         <td>
-                            <Button onClick={()=>navigate("/project")}>View and Edit</Button>
+                            <Button onClick={()=>navigate(`/project/${project.id}`)}>View and Edit</Button>
                         </td>
                     </tr>
                 ))}
