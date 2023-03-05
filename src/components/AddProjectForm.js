@@ -9,7 +9,6 @@ function AddProjectForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        window.location.reload();
         // send the project address to the backend server
         fetch('http://localhost:8080/projects/', {
             method: 'POST',

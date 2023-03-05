@@ -7,11 +7,6 @@ import AddProjectForm from "./AddProjectForm";
 function Projects() {
     const navigate = useNavigate();
     const[projects, setProjects] = useState([]);
-    const[showForm, setShowForm] = useState(false);
-
-    const handleButtonClick = () => {
-        setShowForm(true);
-    };
 
     useEffect(()=>{
         fetch("http://localhost:8080/projects/",
@@ -50,8 +45,7 @@ function Projects() {
                 ))}
                 </tbody>
             </Table>
-            <Button onClick={handleButtonClick}>Add New Project</Button>
-            {showForm && <AddProjectForm/> }
+            <Button onClick={()=>navigate(`/new-project`)}>Add New Project</Button>
         </div>
     );
 }

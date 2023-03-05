@@ -7,6 +7,7 @@ import PurchasingStatus from "./components/PurchasingStatus";
 import SelectionStatus from "./components/SelectionStatus";
 import ViewProject from "./components/ViewProject";
 import SelectorEngine from "bootstrap/js/src/dom/selector-engine";
+import AddProjectForm from "./components/AddProjectForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Projects/>}></Route>
             <Route path="/project/:id" element={<ViewProject/>}></Route>
+            <Route path="/new-project" element={<AddProjectForm/>}></Route>
             <Route path="/selection" element={<SelectionStatus/>}></Route>
             <Route path="/purchasing" element={<PurchasingStatus/>}></Route>
         </Routes>

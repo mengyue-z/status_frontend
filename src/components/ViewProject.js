@@ -4,6 +4,7 @@ import {Button, Col, Row} from "react-bootstrap";
 import SelectionStatus from "./SelectionStatus";
 import PurchasingStatus from "./PurchasingStatus";
 import BidStatus from "./BidStatus";
+import BidStatusTable from "./BidStatusTableRow";
 import {useParams} from "react-router-dom";
 
 
@@ -25,18 +26,19 @@ function ViewProject() {
         return <div>Loading...</div>;
     }
 
+    console.log(project);
     return (
         <div className = "view-project">
             <h1>{project.address}</h1>
+            {/*<Col>*/}
+            {/*    <SelectionStatus project={project}/>*/}
+            {/*</Col>*/}
             <Col>
-                <SelectionStatus project={project}/>
+                <BidStatus project={project} />
             </Col>
-            <Col>
-                <BidStatus />
-            </Col>
-            <Col>
-                <PurchasingStatus />
-            </Col>
+            {/*<Col>*/}
+            {/*    <PurchasingStatus />*/}
+            {/*</Col>*/}
         </div>
     );
 }
