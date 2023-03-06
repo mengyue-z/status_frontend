@@ -16,16 +16,18 @@ function BidStatus(props) {
     const handleChildStateChange = (newChildState) => {
         setBidStatusData(newChildState);
     };
-
     const handleEditClick = (event, rowId) =>{
         event.preventDefault();
         setEditRowId(rowId);
     }
-
     console.log(bidStatusData);
+    const handleCancelClick = () =>{
+        setEditRowId(null);
+    }
+
     const handleEditFormSubmit=(event) =>{
         event.preventDefault();
-        fetch(`http://localhost:8080/projects/bid-status/${id}/utility-disconnection`, {
+        fetch(`http://localhost:8080/projects/bid-status/${id}/${bidStatusData.item}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,6 +49,8 @@ function BidStatus(props) {
                 // setEditFormData('');
             })
             .catch(error => console.error('Error updating project:', error));
+        setEditRowId(null);
+        window.location.reload();
     }
 
     return (
@@ -66,10 +70,11 @@ function BidStatus(props) {
                     </thead>
                     <tbody>
                     <Fragment>
-                        {editRowId===1 ? (<EditableBidStatusTableRow onChildStateChange={handleChildStateChange} handleEditFormSubmit={handleEditFormSubmit} project = {project} id={1} item={"Utility Disconnection"} itemDataName={"utilityDisconnection"} handleEditClick={handleEditClick}/>
+                        {editRowId===1 ? (<EditableBidStatusTableRow handleCancelClick ={handleCancelClick} onChildStateChange={handleChildStateChange} handleEditFormSubmit={handleEditFormSubmit} project = {project} id={1} item={"Utility Disconnection"} itemDataName={"utilityDisconnection"} handleEditClick={handleEditClick}/>
                             ):(<BidStatusTableRow project = {project} id={1} item={"Utility Disconnection"} itemDataName={"utilityDisconnection"} handleEditClick={handleEditClick}/>)}
+                        {editRowId===2 ? (<EditableBidStatusTableRow handleCancelClick ={handleCancelClick} onChildStateChange={handleChildStateChange} handleEditFormSubmit={handleEditFormSubmit} project = {project} id={2} item={"Concrete Bid"} itemDataName={"concreteBid"} handleEditClick={handleEditClick}/>
+                        ):(<BidStatusTableRow project = {project} id={2} item={"Concrete Bid"} itemDataName={"concreteBid"} handleEditClick={handleEditClick}/>)}
                     </Fragment>
-                        <BidStatusTableRow project = {project} id={2} item={"Concrete Bid"} itemDataName={"concreteBid"} handleEditClick={handleEditClick}/>
                     </tbody>
                 </Table>
             </Form>

@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Projects from "./components/Projects";
-import BidStatus from "./components/BidStatus";
-import PurchasingStatus from "./components/PurchasingStatus";
-import SelectionStatus from "./components/SelectionStatus";
+import BidStatus from "./components/BidStatus/BidStatus";
+import PurchasingStatus from "./components/PurchasingStatus/PurchasingStatus";
+import SelectionStatus from "./components/SelectionStatus/SelectionStatus";
 import ViewProject from "./components/ViewProject";
 import SelectorEngine from "bootstrap/js/src/dom/selector-engine";
 import AddProjectForm from "./components/AddProjectForm";
+import ViewAllProjects from "./components/ViewAllProjects";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/new-project" element={<AddProjectForm/>}></Route>
             <Route path="/selection" element={<SelectionStatus/>}></Route>
             <Route path="/purchasing" element={<PurchasingStatus/>}></Route>
+            <Route path="/AllProjects" element={<ViewAllProjects/>}></Route>
         </Routes>
     </div>
       </Router>
