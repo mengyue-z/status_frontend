@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
-import Table from 'react-bootstrap/Table';
-import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import AddProjectForm from "./AddProjectForm";
-import ViewProject from "./ViewProject";
 import BidStatus from "./BidStatus/BidStatus";
 import SelectionStatus from "./SelectionStatus/SelectionStatus";
 import PurchasingStatus from "./PurchasingStatus/PurchasingStatus";
+import {Row, Col} from 'react-bootstrap';
+import "../index.css";
 
 function Projects() {
     const navigate = useNavigate();
@@ -29,12 +27,12 @@ function Projects() {
     return (
         <div className = "projects">
                 {projects.map(project=>(
-                    <div>
-                        <h1> {project.address} </h1>
-                        <SelectionStatus project={project}/>
-                        <PurchasingStatus project={project}/>
-                        <BidStatus project={project}/>
-                    </div>
+                        <Col className= "project">
+                            <h1> {project.address} </h1>
+                            <SelectionStatus project={project}/>
+                            <PurchasingStatus project={project}/>
+                            <BidStatus project={project}/>
+                        </Col>
                 ))}
         </div>
     );

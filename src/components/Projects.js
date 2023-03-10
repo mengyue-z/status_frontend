@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import Table from 'react-bootstrap/Table';
-import {Button} from "react-bootstrap";
+import {Button, Row, Col} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import AddProjectForm from "./AddProjectForm";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Projects() {
     const navigate = useNavigate();
@@ -26,14 +26,14 @@ function Projects() {
         <div className = "projects">
             <h1>Project List</h1>
             <Table striped bordered hover>
-                <thead>
+                <thead className ="thead-white">
                 <tr>
                     <th>#</th>
                     <th>Project</th>
                     <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className="table-striped">
                 {projects.map(project=>(
                     <tr key="{project.id}">
                         <td>{project.id}</td>

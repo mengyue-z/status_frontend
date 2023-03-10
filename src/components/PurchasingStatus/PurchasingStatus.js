@@ -26,7 +26,7 @@ function PurchasingStatus(props) {
 
     const handleEditFormSubmit=(event) =>{
         event.preventDefault();
-        fetch(`http://localhost:8080/projects/bid-status/${id}/${purchasingStatusData.item}`, {
+        fetch(`http://localhost:8080/projects/purchasing-status/${id}/${purchasingStatusData.item}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

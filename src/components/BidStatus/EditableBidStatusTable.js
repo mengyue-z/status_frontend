@@ -10,9 +10,9 @@ function EditableBidStatusTableRow(props) {
     let item = props.item;
     let itemDataName = props.itemDataName;
     let people = project.bidStatus == null ? "Not Assigned" : project.bidStatus[`${itemDataName}`].poc;
-    let status = project.bidStatus == null ? "hello" : project.bidStatus[`${itemDataName}`].status.statusDetail;
-    let date = project.bidStatus == null ? "123 " : project.bidStatus[`${itemDataName}`].status.date;
-    let notes = project.bidStatus == null ? "hello" : project.bidStatus[`${itemDataName}`].status.notes
+    let status = project.bidStatus == null ? "in process" : project.bidStatus[`${itemDataName}`].status.statusDetail;
+    let date = project.bidStatus == null ? " " : project.bidStatus[`${itemDataName}`].status.date;
+    let notes = project.bidStatus == null ? " " : project.bidStatus[`${itemDataName}`].status.notes
 
     const[editFormData, setEditFormData] = useState({
         people:people,

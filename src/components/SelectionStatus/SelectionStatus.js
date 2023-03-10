@@ -26,7 +26,7 @@ function SelectionStatus(props) {
 
     const handleEditFormSubmit=(event) =>{
         event.preventDefault();
-        fetch(`http://localhost:8080/projects/bid-status/${id}/${selectionStatusData.item}`, {
+        fetch(`http://localhost:8080/projects/selection-status/${id}/${selectionStatusData.item}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

@@ -2,11 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Projects from "./components/Projects";
-import BidStatus from "./components/BidStatus/BidStatus";
 import PurchasingStatus from "./components/PurchasingStatus/PurchasingStatus";
 import SelectionStatus from "./components/SelectionStatus/SelectionStatus";
 import ViewProject from "./components/ViewProject";
-import SelectorEngine from "bootstrap/js/src/dom/selector-engine";
+import 'bootstrap/dist/css/bootstrap.css';
 import AddProjectForm from "./components/AddProjectForm";
 import ViewAllProjects from "./components/ViewAllProjects";
 

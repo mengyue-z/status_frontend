@@ -11,9 +11,9 @@ function EditableSelectionStatusTableRow(props) {
 
     console.log(project.selectionStatus[`${itemDataName}`]);
     let people = project.selectionStatus == null ? "Not Assigned" : project.selectionStatus[`${itemDataName}`].poc;
-    let status = project.selectionStatus == null ? "hello" : project.selectionStatus[`${itemDataName}`].status.statusDetail;
-    let date = project.selectionStatus == null ? "123 " : project.selectionStatus[`${itemDataName}`].status.date;
-    let notes = project.selectionStatus == null ? "hello" : project.selectionStatus[`${itemDataName}`].status.notes
+    let status = project.selectionStatus == null ? "in process" : project.selectionStatus[`${itemDataName}`].status.statusDetail;
+    let date = project.selectionStatus == null ? " " : project.selectionStatus[`${itemDataName}`].status.date;
+    let notes = project.selectionStatus == null ? " " : project.selectionStatus[`${itemDataName}`].status.notes
 
     const[editFormData, setEditFormData] = useState({
         people:people,
